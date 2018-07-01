@@ -21,11 +21,12 @@ mvn clean install -DskipTests
 
 java -jar target/opal-0.0.1-SNAPSHOT.jar
 
-Run CustomerOpalCardManagementServiceTest
+Run CustomerOpalCardManagementServiceTest (test/java/au/com/ps/opal/service/CustomerOpalCardManagementServiceTest)
 
 **CustomerCardManagementAPI**
 
 This API implements Card Ordering System
+
 
 Assumption:
     

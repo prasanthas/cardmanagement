@@ -51,11 +51,10 @@ public class CardManagementServiceImpl implements CardManagementService {
 
         postageService.postCard(opalCard, customerId);
 
-        OpalCard opalCard1 = new OpalCard();
-        opalCard1.setCardNo("C-1234");
+        card.setCardNo("C-1234");
 
         order.setOderId("O-12334");
-        order.setCard(opalCard1);
+        order.setCard(card);
 
         return order;
     }

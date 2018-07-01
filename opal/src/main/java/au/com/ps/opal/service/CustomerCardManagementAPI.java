@@ -1,7 +1,6 @@
 package au.com.ps.opal.service;
 
 import au.com.ps.opal.delegate.CardManagementService;
-import au.com.ps.opal.delegate.CardService;
 import au.com.ps.opal.domain.OpalCard;
 import au.com.ps.opal.domain.Order;
 import org.slf4j.Logger;
@@ -22,15 +21,6 @@ public class CustomerCardManagementAPI {
 
     @Autowired
     private CardManagementService cardManagementService;
-
-    @Autowired
-    private CardService cardService;
-
-    @GetMapping
-    public String getHelloWorld() {
-        return "Hellow World Prasantha";
-    }
-
 
     @PostMapping
     ResponseEntity<?> addCard(@PathVariable("customerId") String customerId, @RequestBody OpalCard opalCard, UriComponentsBuilder ucBuilder) {
