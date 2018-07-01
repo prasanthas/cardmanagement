@@ -1,10 +1,14 @@
 package au.com.ps.opal.delegate.impl;
 
+import au.com.ps.opal.dao.CardServiceDao;
+import au.com.ps.opal.dao.PaymentServiceDao;
+import au.com.ps.opal.dao.PostageServiceDao;
 import au.com.ps.opal.delegate.CardService;
 import au.com.ps.opal.domain.CardType;
 import au.com.ps.opal.domain.OpalCard;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -14,28 +18,35 @@ public class CardServiceImpl implements CardService {
 
     final static Logger logger = LoggerFactory.getLogger(CardServiceImpl.class);
 
+    @Autowired
+    private CardServiceDao cardServiceDao;
+
+    @Autowired
+    private PaymentServiceDao paymentServiceDao;
+
+    @Autowired
+    private PostageServiceDao postageServiceDao;
+
     @Override
     public OpalCard addCard(String customerId, OpalCard card) {
         logger.debug("Inside addCard Service");
 
         //Call another API to create Card
-        card.setCardNo("1234");
+       cardServiceDao.addCard(card);
 
         return card;
+//        return car;
     }
 
     @Override
     public OpalCard getCard(String cardId) {
         logger.debug("Inside getCard CardId: " + cardId);
 
-        OpalCard opalCard = new OpalCard();
-        opalCard.setCardNo(cardId);
-        opalCard.setAmount(new BigDecimal(100));
-        opalCard.setCardType(CardType.ADULT);
+        OpalCard card = cardServiceDao.getCard(cardId);
 
-        logger.debug("returning Opal Card id: " + opalCard.getCardNo());
+        logger.debug("returning Opal Card id: " + card.getCardNo());
 
-        return opalCard;
+        return card;
     }
 
     @Override

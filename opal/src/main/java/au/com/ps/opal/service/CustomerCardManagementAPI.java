@@ -34,13 +34,9 @@ public class CustomerCardManagementAPI {
 
     @PostMapping
     ResponseEntity<?> addCard(@PathVariable("customerId") String customerId, @RequestBody OpalCard opalCard, UriComponentsBuilder ucBuilder) {
-
         logger.debug("Add OpalCard",customerId);
         logger.debug("opalCard: ",opalCard);
 
-        System.out.println("calling cardService");
-//        OpalCard card = cardService.addCard(customerId, opalCard);
-//
         Order order = cardManagementService.orderCard(customerId, opalCard);
 
         HttpHeaders headers = new HttpHeaders();
