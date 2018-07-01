@@ -1,6 +1,6 @@
 package au.com.ps.opal.service;
 
-import au.com.ps.opal.delegate.CardService;
+import au.com.ps.opal.delegate.CardDelegate;
 import au.com.ps.opal.domain.OpalCard;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,13 +18,13 @@ public class OpalCardAPI {
     final static Logger logger = LoggerFactory.getLogger(OpalCardAPI.class);
 
     @Autowired
-    private CardService cardService;
+    private CardDelegate cardDelegate;
 
     @GetMapping("{cardId}")
     public ResponseEntity<OpalCard> getCard(@PathVariable("cardId") String cardId) {
         logger.debug("Inside getCard cardId: " + cardId);
 
-        OpalCard card = cardService.getCard(cardId);
+        OpalCard card = cardDelegate.getCard(cardId);
 
         if(card == null) {
             logger.debug("Card Not Found");
@@ -39,7 +39,7 @@ public class OpalCardAPI {
     ResponseEntity<?> addCard(@RequestBody OpalCard opalCard, UriComponentsBuilder ucBuilder) {
         logger.debug("Add Card");
 
-        OpalCard card = cardService.addCard(opalCard);
+        OpalCard card = cardDelegate.addCard(opalCard);
 
         HttpHeaders headers = new HttpHeaders();
         headers.setLocation(ucBuilder.path("cards/"+card.getCardNo()).buildAndExpand(card.getCardNo()).toUri());
@@ -52,12 +52,12 @@ public class OpalCardAPI {
     ResponseEntity<?> updateCard(@PathVariable("cardId") String cardId, @RequestBody OpalCard opalCard, UriComponentsBuilder ucBuilder) {
         logger.debug("Update Card");
 
-        OpalCard card1 = cardService.getCard(cardId);
+        OpalCard card1 = cardDelegate.getCard(cardId);
 
         if (card1 == null) {
             return new ResponseEntity("Card Not Found", HttpStatus.NOT_FOUND);
         }
-        OpalCard card = cardService.addCard(opalCard);
+        OpalCard card = cardDelegate.addCard(opalCard);
         return new ResponseEntity<OpalCard>(card, HttpStatus.OK);
     }
 
@@ -65,12 +65,12 @@ public class OpalCardAPI {
     ResponseEntity<?> deleteCard(@PathVariable("cardId") String cardId, UriComponentsBuilder ucBuilder) {
         logger.debug("Update Card");
 
-        OpalCard card1 = cardService.getCard(cardId);
+        OpalCard card1 = cardDelegate.getCard(cardId);
 
         if (card1 == null) {
             return new ResponseEntity("Card Not Found", HttpStatus.NOT_FOUND);
         }
-       cardService.deleteCard(cardId);
+       cardDelegate.deleteCard(cardId);
         return new ResponseEntity(HttpStatus.OK);
     }
 

@@ -3,7 +3,7 @@ package au.com.ps.opal.delegate;
 import au.com.ps.opal.domain.OpalCard;
 import org.springframework.stereotype.Service;
 
-public interface CardService {
+public interface CardDelegate {
 
     OpalCard linkCard(String customerId, OpalCard card);
 

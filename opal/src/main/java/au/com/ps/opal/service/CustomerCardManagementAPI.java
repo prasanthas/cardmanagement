@@ -1,6 +1,6 @@
 package au.com.ps.opal.service;
 
-import au.com.ps.opal.delegate.CardManagementService;
+import au.com.ps.opal.delegate.CardManagementDelegate;
 import au.com.ps.opal.domain.OpalCard;
 import au.com.ps.opal.domain.Order;
 import org.slf4j.Logger;
@@ -20,14 +20,14 @@ public class CustomerCardManagementAPI {
     final static Logger logger = LoggerFactory.getLogger(CustomerCardManagementAPI.class);
 
     @Autowired
-    private CardManagementService cardManagementService;
+    private CardManagementDelegate cardManagementDelegate;
 
     @PostMapping
     ResponseEntity<?> addCard(@PathVariable("customerId") String customerId, @RequestBody OpalCard opalCard, UriComponentsBuilder ucBuilder) {
         logger.debug("Add OpalCard",customerId);
         logger.debug("opalCard: ",opalCard);
 
-        Order order = cardManagementService.orderCard(customerId, opalCard);
+        Order order = cardManagementDelegate.orderCard(customerId, opalCard);
 
         HttpHeaders headers = new HttpHeaders();
         headers.setLocation(ucBuilder.path("customers/"+customerId+"/card/{id}").buildAndExpand(order.getCard().getCardNo()).toUri());

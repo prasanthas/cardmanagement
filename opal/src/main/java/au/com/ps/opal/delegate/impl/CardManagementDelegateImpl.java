@@ -1,36 +1,34 @@
 package au.com.ps.opal.delegate.impl;
 
 import au.com.ps.opal.dao.CardServiceDao;
-import au.com.ps.opal.delegate.CardManagementService;
-import au.com.ps.opal.delegate.CardService;
-import au.com.ps.opal.delegate.PaymentService;
-import au.com.ps.opal.delegate.PostageService;
+import au.com.ps.opal.delegate.CardManagementDelegate;
+import au.com.ps.opal.delegate.CardDelegate;
+import au.com.ps.opal.delegate.PaymentDelegate;
+import au.com.ps.opal.delegate.PostageDelegate;
 import au.com.ps.opal.domain.OpalCard;
 import au.com.ps.opal.domain.Order;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 import java.math.BigDecimal;
-import java.net.URI;
 
 @Service
-public class CardManagementServiceImpl implements CardManagementService {
+public class CardManagementDelegateImpl implements CardManagementDelegate {
 
-    final static Logger logger = LoggerFactory.getLogger(CardManagementServiceImpl.class);
+    final static Logger logger = LoggerFactory.getLogger(CardManagementDelegateImpl.class);
 
     private static final String ADD_CARD_SERVICE_URI = "http://localhost:8080/cards/";
 
     @Autowired
-    private CardService cardService;
+    private CardDelegate cardDelegate;
 
     @Autowired
-    private PaymentService paymentService;
+    private PaymentDelegate paymentDelegate;
 
     @Autowired
-    private PostageService postageService;
+    private PostageDelegate postageDelegate;
 
     @Autowired
     private CardServiceDao cardServiceDao;
@@ -45,11 +43,11 @@ public class CardManagementServiceImpl implements CardManagementService {
 
         // if Initial amout available
         if (BigDecimal.ZERO.compareTo(opalCard.getAmount()) == -1) {
-            String paymentRefNo = paymentService.topUp(customerId, card.getCardNo(), opalCard.getAmount());
+            String paymentRefNo = paymentDelegate.topUp(customerId, card.getCardNo(), opalCard.getAmount());
             order.setPaymentRefNo(paymentRefNo);
         }
 
-        postageService.postCard(opalCard, customerId);
+        postageDelegate.postCard(opalCard, customerId);
 
         card.setCardNo("C-1234");
 
@@ -60,7 +58,7 @@ public class CardManagementServiceImpl implements CardManagementService {
     }
 
     private void linkCard(String customerId, OpalCard card) {
-        cardService.linkCard(customerId, card);
+        cardDelegate.linkCard(customerId, card);
     }
 
     /**

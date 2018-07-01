@@ -1,6 +1,6 @@
 package au.com.ps.opal.delegate.impl;
 
-import au.com.ps.opal.delegate.PaymentService;
+import au.com.ps.opal.delegate.PaymentDelegate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 
 @Service
-public class PaymentServiceImpl implements PaymentService {
+public class PaymentDelegateImpl implements PaymentDelegate {
 
-    final static Logger logger = LoggerFactory.getLogger(PaymentServiceImpl.class);
+    final static Logger logger = LoggerFactory.getLogger(PaymentDelegateImpl.class);
 
     @Override
     public String topUp(String customerId, String cardId, BigDecimal amount) {

@@ -8,7 +8,7 @@ import org.springframework.web.client.RestTemplate;
 import java.net.URI;
 
 
-public class CustomerOpalCardManagementServiceTest {
+public class CustomerOpalCardManagementDelegateTest {
     private static final String SERVICE_URI = "http://localhost:8080/customers/";
 
     @Test

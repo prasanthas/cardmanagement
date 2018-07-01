@@ -1,6 +1,6 @@
 package au.com.ps.opal.delegate.impl;
 
-import au.com.ps.opal.delegate.PostageService;
+import au.com.ps.opal.delegate.PostageDelegate;
 import au.com.ps.opal.domain.Customer;
 import au.com.ps.opal.domain.OpalCard;
 import org.slf4j.Logger;
@@ -8,9 +8,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PostageServiceImpl implements PostageService {
+public class PostageDelegateImpl implements PostageDelegate {
 
-    final static Logger logger = LoggerFactory.getLogger(PostageServiceImpl.class);
+    final static Logger logger = LoggerFactory.getLogger(PostageDelegateImpl.class);
 
     @Override
     public String postCard(OpalCard opalCard, Customer customer) {

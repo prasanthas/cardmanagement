@@ -47,6 +47,7 @@ Following improvement can be made
     2. Implementation of PaymentAPI, PostageServiceAPI
     3. Toggling - This can be used to toggle between different implementation. eg: PaymentService Implementation
     4. Factory pattern to drive different implementation
-    5. Error handling - Various error scenarions should be handled. 
+    5. Error handling - Various error scenarions should be handled.
+    6. Code cleanup  
 
 

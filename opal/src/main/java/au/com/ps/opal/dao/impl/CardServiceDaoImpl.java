@@ -1,7 +1,6 @@
 package au.com.ps.opal.dao.impl;
 
 import au.com.ps.opal.dao.CardServiceDao;
-import au.com.ps.opal.delegate.impl.CardManagementServiceImpl;
 import au.com.ps.opal.domain.CardType;
 import au.com.ps.opal.domain.OpalCard;
 import org.slf4j.Logger;

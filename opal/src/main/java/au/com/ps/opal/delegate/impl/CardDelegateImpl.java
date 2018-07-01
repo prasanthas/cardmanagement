@@ -3,7 +3,7 @@ package au.com.ps.opal.delegate.impl;
 import au.com.ps.opal.dao.CardServiceDao;
 import au.com.ps.opal.dao.PaymentServiceDao;
 import au.com.ps.opal.dao.PostageServiceDao;
-import au.com.ps.opal.delegate.CardService;
+import au.com.ps.opal.delegate.CardDelegate;
 import au.com.ps.opal.domain.CardType;
 import au.com.ps.opal.domain.OpalCard;
 import org.slf4j.Logger;
@@ -14,9 +14,9 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 
 @Service
-public class CardServiceImpl implements CardService {
+public class CardDelegateImpl implements CardDelegate {
 
-    final static Logger logger = LoggerFactory.getLogger(CardServiceImpl.class);
+    final static Logger logger = LoggerFactory.getLogger(CardDelegateImpl.class);
 
     @Autowired
     private CardServiceDao cardServiceDao;
