@@ -8,5 +8,9 @@ spring.h2.console.enabled: true
 logging.level.org.hibernate.SQL: debug
 
 #logging
-logging.level.org.springframework.data: debug
-logging.level.: debug
+
+logging:
+  level:
+    ROOT: DEBUG
+    au.com.ps.opal: debug
+    org.springframework.data: debug
