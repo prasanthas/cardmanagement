@@ -13,7 +13,7 @@ public class CardServiceImpl implements CardService {
 
     @Override
     public OpalCard addCard(String customerId, OpalCard card) {
-        System.out.println("Inside addCard Service");
+        logger.debug("Inside addCard Service");
 
         //Call another API to create Card
         card.setCardNo("1234");

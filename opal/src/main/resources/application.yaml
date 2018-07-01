@@ -11,6 +11,6 @@ logging.level.org.hibernate.SQL: debug
 
 logging:
   level:
-    ROOT: DEBUG
+    3ROOT: DEBUG
     au.com.ps.opal: debug
     org.springframework.data: debug
