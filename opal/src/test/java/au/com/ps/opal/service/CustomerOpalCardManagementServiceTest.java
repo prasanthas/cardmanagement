@@ -10,7 +10,8 @@ import java.net.URI;
 
 public class CustomerOpalCardManagementServiceTest {
 
-    public static final String SERVICE_URI = "http://localhost:8080/customers/";
+//    public static final String SERVICE_URI = "http://localhost:8080/customers/";
+    private static final String SERVICE_URI = "http://localhost:8080/customers/";
 
 
     @Test

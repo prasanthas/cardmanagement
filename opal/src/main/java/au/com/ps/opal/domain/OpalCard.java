@@ -9,7 +9,6 @@ public class OpalCard {
     private CardType cardType;
     private BigDecimal amount;
 
-
     public String getCardNo() {
         return cardNo;
     }
