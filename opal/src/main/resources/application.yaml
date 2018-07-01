@@ -1,0 +1,12 @@
+server:
+  port: 8080
+
+management.security.enabled: false
+
+spring.h2.console.enabled: true
+
+logging.level.org.hibernate.SQL: debug
+
+#logging
+logging.level.org.springframework.data: debug
+logging.level.: debug
