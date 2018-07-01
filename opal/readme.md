@@ -23,6 +23,8 @@ Layered approach has been followed
 
 Run CustomerOpalCardManagementServiceTest (test/java/au/com/ps/opal/service/CustomerOpalCardManagementServiceTest)
 
+Run CardAPITest - This is the test class for CardAPI
+
 **CustomerCardManagementAPI**
 
 This API implements Card Ordering System
