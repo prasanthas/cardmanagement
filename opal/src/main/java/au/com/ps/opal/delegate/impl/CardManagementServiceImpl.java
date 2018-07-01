@@ -60,7 +60,7 @@ public class CardManagementServiceImpl implements CardManagementService {
     }
 
     private void linkCard(String customerId, OpalCard card) {
-        cardService.addCard(customerId, card);
+        cardService.linkCard(customerId, card);
     }
 
     /**

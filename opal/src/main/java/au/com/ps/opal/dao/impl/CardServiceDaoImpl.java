@@ -21,8 +21,9 @@ public class CardServiceDaoImpl implements CardServiceDao {
     @Autowired CardRepository cardRepository;
 
     @Override
-    public OpalCard addCard(String customerId, OpalCard card) {
+    public OpalCard linkCard(String customerId, OpalCard card) {
         card.setCardNo("1234");
+        // LINK Customer to Card
 
         return card;
     }

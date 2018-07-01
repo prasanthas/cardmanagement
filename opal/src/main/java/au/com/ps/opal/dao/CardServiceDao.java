@@ -4,7 +4,7 @@ import au.com.ps.opal.domain.OpalCard;
 
 public interface CardServiceDao {
 
-    OpalCard addCard(String customerId, OpalCard card);
+    OpalCard linkCard(String customerId, OpalCard card);
 
     OpalCard addCard(OpalCard card);
 

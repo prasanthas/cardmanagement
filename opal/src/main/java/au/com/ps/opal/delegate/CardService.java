@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 public interface CardService {
 
-    OpalCard addCard(String customerId, OpalCard card);
+    OpalCard linkCard(String customerId, OpalCard card);
 
     OpalCard addCard(OpalCard card);
 

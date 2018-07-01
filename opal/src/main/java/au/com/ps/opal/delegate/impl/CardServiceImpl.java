@@ -28,7 +28,7 @@ public class CardServiceImpl implements CardService {
     private PostageServiceDao postageServiceDao;
 
     @Override
-    public OpalCard addCard(String customerId, OpalCard card) {
+    public OpalCard linkCard(String customerId, OpalCard card) {
         logger.debug("Inside addCard Service");
 
         //Call another API to create Card
