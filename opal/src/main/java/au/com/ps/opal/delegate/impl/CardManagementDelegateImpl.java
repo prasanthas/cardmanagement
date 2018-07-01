@@ -49,8 +49,6 @@ public class CardManagementDelegateImpl implements CardManagementDelegate {
 
         postageDelegate.postCard(opalCard, customerId);
 
-        card.setCardNo("C-1234");
-
         order.setOderId("O-12334");
         order.setCard(card);
 
