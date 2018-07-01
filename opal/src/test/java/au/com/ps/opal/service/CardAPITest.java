@@ -7,7 +7,6 @@ import org.springframework.web.client.RestTemplate;
 
 import java.net.URI;
 
-import static org.junit.Assert.*;
 
 public class CardAPITest {
 
