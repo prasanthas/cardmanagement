@@ -7,5 +7,12 @@ public interface CardService {
 
     OpalCard addCard(String customerId, OpalCard card);
 
-    OpalCard getCard(String cardid);
+    OpalCard addCard(OpalCard card);
+
+    OpalCard getCard(String cardId);
+
+    OpalCard updateCard(OpalCard card);
+
+    void deleteCard(String cardId);
+
 }

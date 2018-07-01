@@ -37,4 +37,35 @@ public class CardServiceImpl implements CardService {
 
         return opalCard;
     }
+
+    @Override
+    public OpalCard updateCard(OpalCard card) {
+        logger.debug("Inside getCard CardId: " + card.getCardNo());
+
+        OpalCard opalCard = new OpalCard();
+        opalCard.setAmount(new BigDecimal(200));
+        opalCard.setCardType(CardType.YOUTH);
+
+        logger.debug("returning Opal Card id: " + opalCard.getCardNo());
+
+        return opalCard;
+    }
+
+    @Override
+    public void deleteCard(String cardId) {
+
+        //Call the serice to delete
+        //throw Exception if it is not successfull
+
+    }
+
+    @Override
+    public OpalCard addCard(OpalCard card) {
+        logger.debug("Inside addCard Service");
+
+        //Call another API to create Card
+        card.setCardNo("5555");
+
+        return card;
+    }
 }

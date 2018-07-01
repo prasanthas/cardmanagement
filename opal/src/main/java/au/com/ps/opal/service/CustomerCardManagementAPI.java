@@ -35,8 +35,8 @@ public class CustomerCardManagementAPI {
     @PostMapping
     ResponseEntity<?> addCard(@PathVariable("customerId") String customerId, @RequestBody OpalCard opalCard, UriComponentsBuilder ucBuilder) {
 
-        logger.info("Add OpalCard",customerId);
-        logger.info("opalCard: ",opalCard);
+        logger.debug("Add OpalCard",customerId);
+        logger.debug("opalCard: ",opalCard);
 
         System.out.println("calling cardService");
 //        OpalCard card = cardService.addCard(customerId, opalCard);
