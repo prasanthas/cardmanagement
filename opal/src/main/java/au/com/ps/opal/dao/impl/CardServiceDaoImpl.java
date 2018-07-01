@@ -6,6 +6,7 @@ import au.com.ps.opal.domain.CardType;
 import au.com.ps.opal.domain.OpalCard;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -16,6 +17,8 @@ import java.net.URI;
 public class CardServiceDaoImpl implements CardServiceDao {
     final static Logger logger = LoggerFactory.getLogger(CardServiceDaoImpl.class);
     private static final String ADD_CARD_SERVICE_URI = "http://localhost:8080/cards/";
+
+    @Autowired CardRepository cardRepository;
 
     @Override
     public OpalCard addCard(String customerId, OpalCard card) {
@@ -33,8 +36,14 @@ public class CardServiceDaoImpl implements CardServiceDao {
 
         logger.debug("card Id: "+card.getCardNo());
 
+        storeCard(card);
+
         return card;
 
+    }
+
+    public void storeCard(OpalCard card) {
+        cardRepository.save(card);
     }
 
     @Override

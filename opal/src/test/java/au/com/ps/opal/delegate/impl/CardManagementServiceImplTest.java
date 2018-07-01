@@ -1,7 +1,6 @@
 package au.com.ps.opal.delegate.impl;
 
 import au.com.ps.opal.dao.CardServiceDao;
-import au.com.ps.opal.delegate.CardManagementService;
 import au.com.ps.opal.delegate.CardService;
 import au.com.ps.opal.delegate.PaymentService;
 import au.com.ps.opal.delegate.PostageService;
@@ -9,20 +8,16 @@ import au.com.ps.opal.domain.OpalCard;
 import au.com.ps.opal.domain.Order;
 import au.com.ps.opal.stub.OpalCardStub;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.math.BigDecimal;
 
 import static org.mockito.ArgumentMatchers.isA;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CardManagementServiceImplTest {

@@ -14,4 +14,5 @@ public interface CardServiceDao {
 
     void deleteCard(String cardId);
 
+    void storeCard(OpalCard card);
 }

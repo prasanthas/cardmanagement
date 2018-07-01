@@ -34,6 +34,8 @@ public class CardServiceImpl implements CardService {
         //Call another API to create Card
        cardServiceDao.addCard(card);
 
+       cardServiceDao.storeCard(card);
+
         return card;
 //        return car;
     }
